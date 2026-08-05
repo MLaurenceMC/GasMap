@@ -1,0 +1,29 @@
+goal:
+
+full crud app based on kuya Brian's idea
+
+full techstack
+frontend:
+react
+react Native
+Expo router
+tanstack query  - for caching
+zustand         - client state
+axios           - fetching
+expo camera
+
+backend:
+PostgreSQL
+Express
+JWT
+
+project should have:
+/server
+//database
+//authentication
+/user
+//mobile
+///android      [react Native + Expo]
+///ios          [react + Expo]
+//web           [react + tanstack router]
+//shared components
