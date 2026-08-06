@@ -1,4 +1,4 @@
-export default function TableList() {
+export default function TableList({handleOpen}) {
   //sample, to be replaced with fetch data
     const items = [
     {
@@ -105,11 +105,11 @@ export default function TableList() {
                 </button>
               </td>
               <td>
-                <button className={`btn btn-secondary w-20`} >
+                <button onClick={() => handleOpen('edit')} className={`btn btn-secondary w-20`}>
                 Update</button>
               </td>
               <td>
-                <button className={`btn btn-error w-20`} >
+                <button onClick={handleOpen} className={`btn btn-error w-20`}>
                 Delete</button>
               </td>
             </tr>

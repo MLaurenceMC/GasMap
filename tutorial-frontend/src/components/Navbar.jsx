@@ -1,8 +1,8 @@
-export default function NavBar() {
+export default function NavBar({ onOpen }) {
   return (
     <div className="navbar bg-base-100 shadow-sm">
       <div className="navbar-start">
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <a className="btn btn-ghost text-xl">CRUD</a>
       </div>
       <div className="navbar-center">
         <input
@@ -12,8 +12,9 @@ export default function NavBar() {
         />
       </div>
       <div className="navbar-end">
-        <button className={`btn btn-primary w-20`} >
-                Button</button>
+        <a className={`btn btn-primary w-20`} onClick={onOpen}>
+          Add
+        </a>
       </div>
     </div>
   );
