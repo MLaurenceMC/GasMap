@@ -8,7 +8,7 @@ export default function Tablelist() {
       company: 'Littel, Schaden and Vandervort',
       location: 'Canada',
       lastLogin: '12/16/2020',
-      favoriteColor: 'Blue',
+      status: false   
     },
     {
       id: 2,
@@ -17,7 +17,7 @@ export default function Tablelist() {
       company: 'Zemlak, Daniel and Leannon',
       location: 'United States',
       lastLogin: '12/5/2020',
-      favoriteColor: 'Purple',
+      status: true
     },
     {
       id: 3,
@@ -26,7 +26,7 @@ export default function Tablelist() {
       company: 'Carroll Group',
       location: 'China',
       lastLogin: '8/15/2020',
-      favoriteColor: 'Red',
+      status: true
     },
     {
       id: 4,
@@ -35,7 +35,7 @@ export default function Tablelist() {
       company: 'Rowe-Schoen',
       location: 'Russia',
       lastLogin: '3/25/2021',
-      favoriteColor: 'Crimson',
+      status: false   
     },
     {
       id: 5,
@@ -44,7 +44,7 @@ export default function Tablelist() {
       company: 'Wyman-Ledner',
       location: 'Brazil',
       lastLogin: '5/22/2020',
-      favoriteColor: 'Indigo',
+      status: true
     },
     {
       id: 6,
@@ -53,7 +53,7 @@ export default function Tablelist() {
       company: 'Wiza, Bins and Emard',
       location: 'Venezuela',
       lastLogin: '12/8/2020',
-      favoriteColor: 'Purple',
+      status: true
     },
     {
       id: 7,
@@ -62,7 +62,7 @@ export default function Tablelist() {
       company: 'Schuster-Schimmel',
       location: 'Philippines',
       lastLogin: '2/17/2021',
-      favoriteColor: 'Yellow',
+      status: false
     },
     {
       id: 8,
@@ -71,7 +71,7 @@ export default function Tablelist() {
       company: "O'Hara, Welch and Keebler",
       location: 'Indonesia',
       lastLogin: '5/23/2020',
-      favoriteColor: 'Crimson',
+      status: false
     },
   ];
 
@@ -83,10 +83,11 @@ export default function Tablelist() {
             <th></th>
             <th>Name</th>
             <th>Job</th>
-            <th>company</th>
-            <th>location</th>
-            <th>Last Login</th>
-            <th>Favorite Color</th>
+            <th>Company</th>
+            <th>Location</th>
+            <th>Status</th>
+            <th>Update</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>
@@ -97,22 +98,35 @@ export default function Tablelist() {
               <td>{item.job}</td>
               <td>{item.company}</td>
               <td>{item.location}</td>
-              <td>{item.lastLogin}</td>
-              <td>{item.favoriteColor}</td>
+              <td>
+                <button className={`btn rounded-full w-20 
+                  ${item.status ? `btn-primary` : `btn-primary btn-outline`}`} >
+                  {item.status ? 'Active' : 'Inactive'}
+                </button>
+              </td>
+              <td>
+                <button className={`btn btn-secondary w-20`} >
+                Update</button>
+              </td>
+              <td>
+                <button className={`btn btn-error w-20`} >
+                Delete</button>
+              </td>
             </tr>
           ))}
         </tbody>
-        <tfoot>
+        {/* <tfoot>
           <tr>
             <th></th>
             <th>Name</th>
             <th>Job</th>
-            <th>company</th>
-            <th>location</th>
-            <th>Last Login</th>
-            <th>Favorite Color</th>
+            <th>Company</th>
+            <th>Location</th>
+            <th>Status</th>
+            <th>Update</th>
+            <th>Delete</th>
           </tr>
-        </tfoot>
+        </tfoot> */}
       </table>
     </div>
   );
