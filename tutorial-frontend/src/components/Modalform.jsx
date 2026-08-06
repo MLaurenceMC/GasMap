@@ -1,4 +1,4 @@
-export default function Modalform({ isOpen, onClose, mode, OnSubmit }) {
+export default function ModalForm({ isOpen, onClose, mode, OnSubmit }) {
   return (
     <>
       {/* You can open the modal using document.getElementById('ID').showModal() method */}

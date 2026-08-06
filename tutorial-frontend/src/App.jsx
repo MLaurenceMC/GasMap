@@ -1,13 +1,13 @@
 import './App.css'
-import Navbar from './components/Navbar'
-import Tablelist from './components/Tablelist'
+import NavBar from './components/NavBar'
+import TableList from './components/TableList'
 
 function App() {
   return (
     <>
       <html data-theme="dracula"></html>
-      <Navbar />
-      <Tablelist />
+      <NavBar />
+      <TableList />
     </>
   )
 }

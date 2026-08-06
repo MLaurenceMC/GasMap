@@ -1,74 +1,74 @@
-export default function Tablelist() {
+export default function TableList() {
   //sample, to be replaced with fetch data
     const items = [
     {
       id: 1,
-      name: 'Cy Ganderton',
-      job: 'Quality Control Specialist',
-      company: 'Littel, Schaden and Vandervort',
+      name: 'Laptop',
+      quantity: 5,
+      price: 999.99,
       location: 'Canada',
       lastLogin: '12/16/2020',
       status: false   
     },
     {
       id: 2,
-      name: 'Hart Hagerty',
-      job: 'Desktop Support Technician',
-      company: 'Zemlak, Daniel and Leannon',
+      name: 'Mouse',
+      quantity: 75,
+      price: 29.99,
       location: 'United States',
       lastLogin: '12/5/2020',
       status: true
     },
     {
       id: 3,
-      name: 'Brice Swyre',
-      job: 'Tax Accountant',
-      company: 'Carroll Group',
+      name: 'Monitor',
+      quantity: 10,
+      price: 199.99,
       location: 'China',
       lastLogin: '8/15/2020',
       status: true
     },
     {
       id: 4,
-      name: 'Marjy Ferencz',
-      job: 'Office Assistant I',
-      company: 'Rowe-Schoen',
+      name: 'Mechanical Keyboard',
+      quantity: 20,
+      price: 79.99,
       location: 'Russia',
       lastLogin: '3/25/2021',
       status: false   
     },
     {
       id: 5,
-      name: 'Yancy Tear',
-      job: 'Community Outreach Specialist',
-      company: 'Wyman-Ledner',
+      name: 'Mouse Pad',
+      quantity: 50,
+      price: 19.99,
       location: 'Brazil',
       lastLogin: '5/22/2020',
       status: true
     },
     {
       id: 6,
-      name: 'Irma Vasilik',
-      job: 'Editor',
-      company: 'Wiza, Bins and Emard',
+      name: 'Power Supply',
+      quantity: 25,
+      price: 59.99,
       location: 'Venezuela',
       lastLogin: '12/8/2020',
       status: true
     },
     {
       id: 7,
-      name: 'Meghann Durtnal',
-      job: 'Staff Accountant IV',
-      company: 'Schuster-Schimmel',
+      name: 'Earphones',
+      quantity: 30,
+      price: 39.99,
       location: 'Philippines',
       lastLogin: '2/17/2021',
       status: false
     },
     {
       id: 8,
-      name: 'Sammy Seston',
-      job: 'Accountant I',
-      company: "O'Hara, Welch and Keebler",
+      name: 'Desktop Microphone',
+      quantity: 15,
+      price: 59.99,
       location: 'Indonesia',
       lastLogin: '5/23/2020',
       status: false
@@ -82,8 +82,8 @@ export default function Tablelist() {
           <tr>
             <th></th>
             <th>Name</th>
-            <th>Job</th>
-            <th>Company</th>
+            <th>Quantity</th>
+            <th>Price</th>
             <th>Location</th>
             <th>Status</th>
             <th>Update</th>
@@ -95,8 +95,8 @@ export default function Tablelist() {
             <tr key={item.id}>
               <th>{item.id}</th>
               <td>{item.name}</td>
-              <td>{item.job}</td>
-              <td>{item.company}</td>
+              <td>{item.quantity}</td>
+              <td>{item.price}</td>
               <td>{item.location}</td>
               <td>
                 <button className={`btn rounded-full w-20 
