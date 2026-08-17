@@ -6,27 +6,27 @@ export const getClients = async () => {
 };
 
 export const createClient = async (clientData) => {
-  const { name, email, job, rate, isActive } = clientData;
+  const { name, email, job, rate, isactive } = clientData;
   const { rows } = await query(
-    `INSERT INTO clients_tb (name, email, job, rate, isActive) 
+    `INSERT INTO clients_tb (name, email, job, rate, isactive) 
      VALUES ($1, $2, $3, $4, $5) RETURNING *`,
-    [name, email, job, rate, isActive],
+    [name, email, job, rate, isactive],
   );
   
   return rows[0];
 };
 
 export const updateClient = async (clientData, clientId) => {
-  const { name, email, job, rate, isActive } = clientData;
+  const { name, email, job, rate, isactive } = clientData;
   const { rows } = await query(
     `UPDATE clients_tb SET 
     name = $1,
     email = $2,
     job = $3,
     rate = $4,
-    isActive = $5
+    isactive = $5
     WHERE id = $6 RETURNING *`,
-    [name, email, job, rate, isActive, clientId]
+    [name, email, job, rate, isactive, clientId]
   );
   
   return rows[0];
