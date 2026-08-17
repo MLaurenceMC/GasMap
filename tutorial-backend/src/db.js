@@ -1,7 +1,9 @@
 import pg from "pg";
 import env from "dotenv";
 
-const db = new pgClient({
+env.config();
+
+const db = new pg.Client({
     user: process.env.DB_USER,
     host: process.env.DB_HOST,
     database: process.env.DB_NAME,
