@@ -35,3 +35,17 @@ export const updateClient = async (req, res) => {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 }
+
+export const deleteClient = async (req, res) => {
+    try {
+        const clientId = req.params.id;
+        const deletedClient = await clientService.deleteClient(clientId);
+        if (!deletedClient) {
+            return res.status(404).json({ error: 'Client not found' });
+        }
+        res.status(200).send(`Client with ID ${clientId} deleted successfully`);
+    } catch (error) {
+        console.error('Error deleting client:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+}
