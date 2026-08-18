@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function ModalForm({
     isOpen,
@@ -15,7 +15,7 @@ export default function ModalForm({
 
     const handleStatusChange = (e) => {
         setStatus(e.target.value === 'Active');
-    };
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -33,7 +33,24 @@ export default function ModalForm({
             console.error('Error adding client', err);
         }
         onClose();
-    };
+    }
+
+    useEffect(() => {
+        if (mode === 'edit' && clientData) {
+            // eslint-disable-next-line react-hooks/set-state-in-effect
+            setName(clientData.name);
+            setEmail(clientData.email);
+            setJob(clientData.job);
+            setRate(clientData.rate);
+            setStatus(clientData.isActive);
+        } else {
+            setName('');
+            setEmail('');
+            setJob('');
+            setRate('');
+            setStatus(false);
+        }
+    }, [mode, clientData]);
 
     return (
         <>
@@ -43,7 +60,11 @@ export default function ModalForm({
                     <h3 className="py-4 text-lg font-bold">
                         {mode === 'edit' ? 'Edit Item' : 'Item Details'}
                     </h3>
-                    <form method="dialog" onSubmit={handleSubmit} className='flex flex-col gap-4'>
+                    <form
+                        method="dialog"
+                        onSubmit={handleSubmit}
+                        className="flex flex-col gap-4"
+                    >
                         {/* if there is a button in form, it will close the modal */}
                         <label className="input input-bordered flex w-full items-center gap-2">
                             Name
@@ -52,7 +73,6 @@ export default function ModalForm({
                                 className="grow"
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
-                                placeholder="John Pork"
                             />
                             {/* <span className="badge badge-neutral badge-xs">Optional</span> */}
                         </label>
@@ -63,7 +83,6 @@ export default function ModalForm({
                                 className="grow"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
-                                placeholder="johnpork@example.com"
                             />
                         </label>
                         <label className="input input-bordered flex w-full items-center gap-2">
@@ -73,7 +92,6 @@ export default function ModalForm({
                                 className="grow"
                                 value={job}
                                 onChange={(e) => setJob(e.target.value)}
-                                placeholder="Lawyer"
                             />
                         </label>
                         <div className="flex justify-between gap-2">
@@ -84,7 +102,6 @@ export default function ModalForm({
                                     className="grow"
                                     value={rate}
                                     onChange={(e) => setRate(e.target.value)}
-                                    placeholder="100.00"
                                 />
                             </label>
                             <select

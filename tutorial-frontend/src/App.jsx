@@ -11,10 +11,12 @@ function App() {
   const [searchTerm, setSearchTerm] = useState('');
   const [clientData, setClientData] = useState(null);
 
-  const handleOpenModal = (mode) => {
+  const handleOpenModal = (mode,client) => {
+    setClientData(client);
     setIsOpen(true);
     setModalMode(mode);
   };
+
   const handleSubmit = async (newClientData) => {
     if (modalMode === 'add') {
       console.log('modal add');
