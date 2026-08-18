@@ -54,7 +54,7 @@ export const searchClient = async (req, res) => {
     try {
         const searchTerm = req.query.q;
         const clients = await clientService.searchClient(searchTerm);
-        res.status(200).send(clients);
+        res.status(200).json(clients);
     } catch (error) {
         console.error('Error searching client:', error);
         res.status(500).json({ error: 'Internal Server Error' });
