@@ -70,13 +70,12 @@ export default function ModalForm({ isOpen, onClose, mode, onSubmit }) {
               />
             </label>
             <select
-              defaultValue="Status"
               className="select select-bordered w-full"
-              value={status}
+              value={status ? 'Active' : 'Inactive'}
               onChange={handleStatusChange}
             >
-              <option value="Active">Active</option>
-              <option value="Inactive">Inactive</option>
+              <option>Active</option>
+              <option>Inactive</option>
             </select>
             <button
               onClick={onClose}
