@@ -4,7 +4,7 @@ export default function ModalForm({
     isOpen,
     onClose,
     mode,
-    OnSubmit,
+    onSubmit,
     clientData,
 }) {
     const [name, setName] = useState('');
@@ -27,9 +27,10 @@ export default function ModalForm({
                 rate: Number(rate),
                 isactive: status,
             };
-            await OnSubmit(clientData);
+            await onSubmit(clientData);
+            onClose();
         } catch (err) {
-            console.error('Error adding client');
+            console.error('Error adding client', err);
         }
         onClose();
     };

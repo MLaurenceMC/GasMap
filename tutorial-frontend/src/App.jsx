@@ -23,7 +23,7 @@ function App() {
           `http://localhost:3000/api/clients`, newClientData);
           console.log(`Client added: `, response.data);
       } catch (error) {
-        console.log("Error adding client");
+        console.log("Error adding client", error);
       }
     } else {
       console.log('modal edit');
