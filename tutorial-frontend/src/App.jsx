@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import ModalForm from './components/Modalform';
 import NavBar from './components/NavBar';
@@ -10,6 +10,23 @@ function App() {
   const [modalMode, setModalMode] = useState('add');
   const [searchTerm, setSearchTerm] = useState('');
   const [clientData, setClientData] = useState(null);
+  const [tableData, setTableData] = useState([]);
+
+  const fetchClients = async () => {
+    try {
+      const response = await axios.get(
+        `http://localhost:3000/api/clients`
+      );
+      setTableData(response.data);
+    } catch (error) {
+      console.log("Error fetching client list", error);
+    }
+  } 
+
+  useEffect(() => {
+    fetchClients();
+  }, []);
+
 
   const handleOpenModal = (mode,client) => {
     setClientData(client);
