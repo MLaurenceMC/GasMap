@@ -1,0 +1,53 @@
+sidebar:
+- toggle sidebar
+- account 
+    - placeholder
+    - modal clickable
+    - community points *
+- filter/sort by:
+    - gas company
+    - range in distance ? location is on
+    - payment method
+    - verified prices *
+    - use determined by community points *
+- small banner ad space
+    - placeholder
+
+map:
+- dots
+    - show on station location
+    - show latest price of preferred fuel type
+        - if zoom level > set, it disappears
+        - if hovered, shows regardless of zoom
+    - modal clickable
+- show current location
+    - option on bottom right
+    - on ? blue : greyed out
+- add option on top right
+    - modal clickable
+
+modal
+- add
+    - gas station location
+- station
+    - update
+        - gas prices
+        - status
+    - report *
+        - false prices
+            - revert to last prices
+        - non existent station 
+- account *
+    - community points
+    - community reputation
+    - logout
+
+logo:
+- about
+- gcash lul
+
+remembers via localstorage:
+- last map position
+- zoom
+- location preferrence
+- gas preferrence

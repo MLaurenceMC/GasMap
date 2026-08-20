@@ -1,0 +1,38 @@
+database
+- station
+    - ID
+    - location
+        - longitude
+        - latitude
+    - gas prices
+        - 91 / 95 / diesel
+        - last verified prices
+    - company
+    - status
+    - payment methods [boolean]
+        - gcash
+        - credit card
+        - maya
+- account *
+    - community points
+    - community reputation score
+    - # of reports
+    - UUID
+    - email
+
+controllers
+- feature function
+routes
+- get / post / put / delete
+- ('/station/...')
+services
+- db query
+index
+db.js
+
+.get('/station', stationController.getStations(searchParams));
+.post('/station', stationController.createStation);
+.put('/station/:id', stationController.updateStation);
+.delete('/station/:id', stationController.deleteStation);
+
+*.get('/station/:UUID', stationController.filterStation(filterParams));
