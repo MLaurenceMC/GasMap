@@ -1,5 +1,6 @@
 sidebar:
 - toggle sidebar
+- toggle light/dark mode 
 - account 
     - placeholder
     - modal clickable
