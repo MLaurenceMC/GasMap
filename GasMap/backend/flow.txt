@@ -6,13 +6,21 @@ database
         - latitude
     - gas prices
         - 91 / 95 / diesel
-        - last verified prices
     - company
     - status
     - payment methods [boolean]
         - gcash
         - credit card
         - maya
+- station_history
+    - ID
+    - station_id
+    - gas prices
+        - 91 / 95 / diesel
+    - report date
+    - reported by:
+        - UUID
+    - verification status
 - account *
     - community points
     - community reputation score

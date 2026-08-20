@@ -11,6 +11,7 @@ sidebar:
     - payment method
     - verified prices *
     - use determined by community points *
+- price tracker graph of all rendered stations
 - small banner ad space
     - placeholder
 
@@ -24,13 +25,18 @@ map:
 - show current location
     - option on bottom right
     - on ? blue : greyed out
-- add option on top right
+- add button
     - modal clickable
+- refresh button
 
 modal
 - add
     - gas station location
 - station
+    - shows
+        - all gas prices
+        - status
+        - price history tracker
     - update
         - gas prices
         - status
@@ -38,6 +44,7 @@ modal
         - false prices
             - revert to last prices
         - non existent station 
+    
 - account *
     - community points
     - community reputation
