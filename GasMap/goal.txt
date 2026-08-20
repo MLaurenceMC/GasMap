@@ -1,0 +1,13 @@
+stack:
+
+frontend
+- leaflet + OpenStreetMap
+- tailwindcss
+- vitejs + react
+- daisyUI
+
+backend
+- PostgreSQL
+- Express
+- axios
+- cors
