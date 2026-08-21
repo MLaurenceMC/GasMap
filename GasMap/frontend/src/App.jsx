@@ -7,16 +7,22 @@ import NavBar from "./components/NavBar";
 import SideBar from "./components/SideBar";
 
 function App() {
+  const [isSideBarOpen, setIsSideBarOpen] = useState(
+    window.innerWidth >= 1024
+  )
 
   return (
-    <>
-      <div data-theme="dracula">
-        <NavBar></NavBar>
-        {/* <MapBox></MapBox> */}
-        <SideBar></SideBar>
-        {/* <ModalForm></ModalForm> */}
-      </div>
-    </>
+    <div data-theme="dracula">
+      <NavBar 
+      onOpen = {() => setIsSideBarOpen(!(isSideBarOpen))}
+      />
+      <SideBar
+      isOpen = {isSideBarOpen}
+      >
+        {/* <MapBox /> */}
+      </SideBar>
+      {/* <ModalForm></ModalForm> */}
+    </div>
   );
 }
 
