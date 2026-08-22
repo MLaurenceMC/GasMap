@@ -2,21 +2,21 @@ import { useState } from "react";
 import "./App.css";
 
 import MapBox from "./components/MapBox";
-import ModalForm from "./components/ModalForm";
+import ModalHandler from "./components/ModalHandler";
 import NavBar from "./components/NavBar";
 import SideBar from "./components/SideBar";
-
-const coordsJunction = [14.586579, 121.114821];
+import * as sample from "./assets/sampleConstants";
 
 function App() {
   const [isSideBarOpen, setIsSideBarOpen] = useState(window.innerWidth >= 1024);
+  const [modalMode, setModalMode] = useState('station');
 
   return (
     <div data-theme="dracula" className="h-screen flex flex-col">
       <NavBar onOpen={() => setIsSideBarOpen(!isSideBarOpen)} />
       {/* <MapBox /> */}
       <SideBar isOpen={isSideBarOpen}>
-        <MapBox coords={coordsJunction}/>
+        <MapBox coords={sample.coordsJunction}/>
       </SideBar>
       {/* <ModalForm></ModalForm> */}
     </div>

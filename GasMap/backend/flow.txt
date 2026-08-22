@@ -4,10 +4,10 @@ database
     - location
         - longitude
         - latitude
+        - h3 indexing
     - gas prices
         - 91 / 95 / diesel
     - company
-    - status
     - payment methods [boolean]
         - gcash
         - credit card

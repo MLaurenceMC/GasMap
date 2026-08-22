@@ -1,4 +1,14 @@
+import { useState } from "react";
+
 export default function SideBar({ children, isOpen }) {
+
+    const [fuelType, setFuelType] = useState('all');
+    const [company, setCompany] = useState(0); // 0 = all
+    const [paymentMethod, setPaymentMethod] = useState(
+        // cash, credit
+        Array(6).fill(false)
+    );
+
   return (
     <div className={`drawer ${isOpen ? "drawer-open" : ""} h-full`}>
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
@@ -16,6 +26,7 @@ export default function SideBar({ children, isOpen }) {
         ></label>
         <ul className="menu bg-base-200 min-h-full w-80 p-4">
           {/* Sidebar content here */}
+          {/* fuel filter */}
           <li>
             <a>Fuel:</a>
           </li>
@@ -48,6 +59,9 @@ export default function SideBar({ children, isOpen }) {
               aria-label="Premium"
             />
           </div>
+          {/* gas company */}
+          {/* price range */}
+          {/* payment method */}
           <li>
             <a>Sidebar Item 2</a>
           </li>
