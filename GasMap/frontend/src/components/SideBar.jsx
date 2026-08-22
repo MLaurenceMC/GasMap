@@ -8,7 +8,7 @@ export default function SideBar({ children, isOpen }) {
           Open drawer
         </label> */}
       </div>
-      <div className="drawer-side">
+      <div className="drawer-side h-full">
         <label
           htmlFor="my-drawer-3"
           aria-label="close sidebar"
