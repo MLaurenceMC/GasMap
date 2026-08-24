@@ -1,0 +1,8 @@
+if installing packages
+do it at the GasMap level folder
+
+if installing package to backend
+\GasMap>npm install package --workspace=backend
+
+if installing package to frontend
+\GasMap>npm install package --workspace=frontend
