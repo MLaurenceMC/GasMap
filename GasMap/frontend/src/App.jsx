@@ -19,11 +19,11 @@ function App() {
       <SideBar 
         isOpen={isSideBarOpen} 
         stationsData={sample.x10_stations}
-        // filter={filter}
+        filter={filter}
         setFilter={setFilter}>
         <MapBox
           coords={sample.coordsJunction}
-          // filter={filter}
+          filter={filter}
           stationsData={sample.x10_stations}
         />
       </SideBar>

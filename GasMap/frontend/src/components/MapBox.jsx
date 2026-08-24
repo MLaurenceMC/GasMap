@@ -25,7 +25,20 @@ function MapInteractionHandler() {
   return null;
 }
 
-export default function MapBox({ coords, stationsData }) {
+export default function MapBox({ coords, stationsData, filter }) {
+  const filteredStations = stationsData.filter((station) => {
+  const brandMatches =
+    filter[1] === null || station.brand === filter[1];
+
+  const paymentMatches =
+    filter[2].length === 0 ||
+    filter[2].every((method) =>
+        station.paymentMethods.includes(method)
+    );
+
+  return brandMatches && paymentMatches;
+})
+
   return (
     <MapContainer
       center={coords}
@@ -39,12 +52,14 @@ export default function MapBox({ coords, stationsData }) {
 
       <MapInteractionHandler />
 
-      <MarkerClusterGroup>
-        {stationsData.map((station) => (
-          <Marker position={station.coords}>
-            {/* <Popup> */}
-              <Tooltip permanent>{station.prices[0].price}</Tooltip>
-            {/* </Popup> */}
+      <MarkerClusterGroup key={filter[0]}>
+        {filteredStations.map((station) => (
+          <Marker key={station.id} position={station.coords}>
+            {filter[0] !== null && (
+              <Tooltip permanent={filter[0] !== null}>
+                {filter[0] !== null && station.prices[filter[0] - 1]?.price}
+              </Tooltip>
+            )}
           </Marker>
         ))}
       </MarkerClusterGroup>

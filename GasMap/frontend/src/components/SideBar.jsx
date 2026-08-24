@@ -11,14 +11,16 @@ export default function SideBar({
   children,
   isOpen,
   stationsData,
-//   filter,
+  filter,
   setFilter
 }) {
   const paymentMethods = getUniquePaymentMethods(stationsData);
   const brands = getUniqueBrands(stationsData);
 
   const handleFuelTypeChange = (fuelType) => {
-    setFilter((prev) => [fuelType, prev[1], prev[2]]);
+    setFilter((prev) => [
+        prev[0] === fuelType ? null : fuelType
+        , prev[1], prev[2]]);
   };
 
   const handleBrandChange = (brand) => {
@@ -28,6 +30,9 @@ export default function SideBar({
   const handlePaymentMethodChange = (paymentMethod) => {
     setFilter((prev) => {
       const payments = prev[2];
+      if (paymentMethod === null) {
+        return [prev[0], prev[1], []];
+      }
 
       if (payments.includes(paymentMethod)) {
         return [prev[0], prev[1], payments.filter((p) => p !== paymentMethod)];
@@ -57,37 +62,43 @@ export default function SideBar({
           <li>
             <a>Fuel:</a>
           </li>
-          <div className="filter basis-full justify-center">
-            <input
+          <div className="flex basis-full justify-center">
+            {/* <input
               className="btn filter-reset"
               type="radio"
               name="metaframeworks"
               aria-label="All"
               onChange={() => handleFuelTypeChange(null)}
-            />
+            /> */}
             <input
               className="btn
+              checked:border-base-100
               checked:bg-amber-500"
               type="radio"
               name="metaframeworks"
               aria-label="Diesel"
-              onChange={() => handleFuelTypeChange(3)}
-            />
+              checked={filter[0] === 3}
+              onClick={() => handleFuelTypeChange(3)}
+              />
             <input
               className="btn
+              checked:border-base-100
               checked:bg-green-500"
               type="radio"
               name="metaframeworks"
               aria-label="Regular"
-              onChange={() => handleFuelTypeChange(1)}
-            />
+              checked={filter[0] === 1}
+              onClick={() => handleFuelTypeChange(1)}
+              />
             <input
               className="btn
+              checked:border-base-100
               checked:bg-red-500"
               type="radio"
               name="metaframeworks"
               aria-label="Premium"
-              onChange={() => handleFuelTypeChange(2)}
+              checked={filter[0] === 2}
+              onClick={() => handleFuelTypeChange(2)}
             />
           </div>
           {/* gas company */}
@@ -106,7 +117,7 @@ export default function SideBar({
               <input
                 key={brand}
                 className="btn
-                    checked:bg-red-500"
+                    checked:bg-accent"
                 type="radio"
                 name="metalframeworks"
                 aria-label={brand}
@@ -123,16 +134,16 @@ export default function SideBar({
               className="btn"
               type="reset"
               value="All"
-              onChange={() => handlePaymentMethodChange(null)}
+              onClick={() => handlePaymentMethodChange(null)}
             />
             {paymentMethods.map((method) => (
               <input
                 key={method}
                 className="btn
-                    checked:bg-red-500"
+                    checked:bg-secondary"
                 type="checkbox"
                 name="frameworks"
-                aria-label={method}
+                aria-label={method.charAt(0).toUpperCase() + method.slice(1)}
                 onChange={() => handlePaymentMethodChange(method)}
               />
             ))}
