@@ -3,11 +3,12 @@ import {
   Marker,
   Popup,
   TileLayer,
+  Tooltip,
   useMapEvents,
 } from "react-leaflet";
 import MarkerClusterGroup from "react-leaflet-markercluster";
 import "leaflet/dist/leaflet.css";
-import 'react-leaflet-markercluster/styles'
+import "react-leaflet-markercluster/styles";
 // import StationMarker from "./StationMarker";
 
 function MapInteractionHandler() {
@@ -41,7 +42,9 @@ export default function MapBox({ coords, stationsData }) {
       <MarkerClusterGroup>
         {stationsData.map((station) => (
           <Marker position={station.coords}>
-            <Popup>{station.name}</Popup>
+            {/* <Popup> */}
+              <Tooltip permanent>{station.prices[0].price}</Tooltip>
+            {/* </Popup> */}
           </Marker>
         ))}
       </MarkerClusterGroup>
