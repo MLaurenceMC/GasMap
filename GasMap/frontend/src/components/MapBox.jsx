@@ -7,6 +7,7 @@ import {
 } from "react-leaflet";
 import MarkerClusterGroup from "react-leaflet-markercluster";
 import "leaflet/dist/leaflet.css";
+import 'react-leaflet-markercluster/styles'
 // import StationMarker from "./StationMarker";
 
 function MapInteractionHandler() {
