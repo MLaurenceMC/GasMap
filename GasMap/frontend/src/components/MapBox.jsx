@@ -9,7 +9,23 @@ import {
 import MarkerClusterGroup from "react-leaflet-markercluster";
 import "leaflet/dist/leaflet.css";
 import "react-leaflet-markercluster/styles";
+import { useState } from "react";
 // import StationMarker from "./StationMarker";
+
+const layers = [
+  {
+    name: "OSM",
+    attribution:
+    '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+  url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+  },
+  {
+    name: "CartoDB",
+    attribution:
+      '&copy; <a href="http://cartodb.com/attributions">CartoDB</a> contributors',
+    url: "https://{s}.basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}.png",
+  },
+];
 
 function MapInteractionHandler() {
   const map = useMapEvents({
@@ -26,18 +42,17 @@ function MapInteractionHandler() {
 }
 
 export default function MapBox({ coords, stationsData, filter }) {
+  const [selectedLayer, setSelectedLayer] = useState("CartoDB");
+  const currentLayer = layers.find((layer) => layer.name === selectedLayer);
   const filteredStations = stationsData.filter((station) => {
-  const brandMatches =
-    filter[1] === null || station.brand === filter[1];
+    const brandMatches = filter[1] === null || station.brand === filter[1];
 
-  const paymentMatches =
-    filter[2].length === 0 ||
-    filter[2].every((method) =>
-        station.paymentMethods.includes(method)
-    );
+    const paymentMatches =
+      filter[2].length === 0 ||
+      filter[2].every((method) => station.paymentMethods.includes(method));
 
-  return brandMatches && paymentMatches;
-})
+    return brandMatches && paymentMatches;
+  });
 
   return (
     <MapContainer
@@ -46,8 +61,8 @@ export default function MapBox({ coords, stationsData, filter }) {
       style={{ height: "100%", width: "100%" }}
     >
       <TileLayer
-        attribution='&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        attribution={currentLayer.attribution}
+        url={currentLayer.url}
       />
 
       <MapInteractionHandler />

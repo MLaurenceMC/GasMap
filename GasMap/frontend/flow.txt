@@ -1,16 +1,29 @@
-sidebar:
-- toggle sidebar
-- toggle light/dark mode 
+navbar:
+~ hoverover + inactive 0.5s => expand
+~ on large screens becomes sidebar
+~ on smaller screens becomes top bar
+- logo
+- homepage
+- history / favorites
 - account 
     - placeholder
     - modal clickable
     - community points *
+- settings
+
+sidebar:
+- toggle sidebar
+- toggle light/dark mode 
 - filter/sort by:
     - gas company
     - range in distance ? location is on
     - payment method
     - verified prices *
     - use determined by community points *
+- station list:
+    - name
+    - distance ~ if location is enabled
+    - price
 - price tracker graph of all rendered stations
 - small banner ad space
     - placeholder
