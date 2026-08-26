@@ -1,29 +1,29 @@
-goal: 
+stack:
 
-full crud app based on kuya Brian's idea
+frontend
+- leaflet + OpenStreetMap
+- lineChart
+- tailwindcss
+- vitejs + react
+- daisyUI
 
-full techstack
-frontend:
-react
-react Native
-Expo router
-tanstack query  - for caching
-zustand         - client state
-axios           - fetching
-expo camera
+backend
+- PostgreSQL
+- Express
+- axios
+- cors
 
-backend:
-PostgreSQL
-Express
-JWT
+develop into a working website first
+before adding any features regarding authentication or other sh*t
+for a full app
+- denoted by [*]
 
-project should have:
-/server
-//database
-//authentication
-/user
-//mobile
-///android      [react Native + Expo]
-///ios          [react + Expo]
-//web           [react + tanstack router]
-//shared components
+for the app
+it will be a communit points driven thing
+community freemium type sh*t
+free features 
+contribute to updating the data to gain points
+
+
+make it functional
+then make it optimal
