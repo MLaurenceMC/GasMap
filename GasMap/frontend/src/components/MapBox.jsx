@@ -22,7 +22,7 @@ const layers = [
   {
     name: "CartoDB",
     attribution:
-      '&copy; <a href="http://cartodb.com/attributions">CartoDB</a> contributors',
+      '&copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
     url: "https://{s}.basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}.png",
   },
 ];
@@ -58,7 +58,8 @@ export default function MapBox({ coords, stationsData, filter }) {
     <MapContainer
       center={coords}
       zoom={13}
-      style={{ height: "100%", width: "100%" }}
+      className="w-full h-full"
+    //   style={{ height: "100%", width: "100%" }}
     >
       <TileLayer
         attribution={currentLayer.attribution}

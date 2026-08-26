@@ -3,16 +3,16 @@ navbar:
 ~ on large screens becomes sidebar
 ~ on smaller screens becomes top bar
 - logo
-- homepage
+- homepage / stations
 - history / favorites
 - account 
     - placeholder
     - modal clickable
     - community points *
 - settings
+- toggle sidebar
 
 sidebar:
-- toggle sidebar
 - toggle light/dark mode 
 - filter/sort by:
     - gas company
