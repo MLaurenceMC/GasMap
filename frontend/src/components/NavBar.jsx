@@ -1,8 +1,8 @@
-export default function MenuBar({ onOpen }) {
+// export default function MenuBar({ onOpen }) {
     
-}
+// }
 
-export function NavBar({ onOpen }) {
+export default function NavBar({ onOpen }) {
   return (
     <div className="navbar bg-base-100 shadow-sm">
       <div className="navbar-start">
